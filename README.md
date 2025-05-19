@@ -65,15 +65,8 @@ Summarize/ <br>
    cd summarize
 
 2. Create a virtual environment and activate it:
-
+ ```bash
  python -m venv venv
 source venv/bin/activate  # or `venv\Scripts\activate` on Windows
 
-3. Install dependencies:
-```bash
- pip install -r requirements.txt
 
-4. Run the Flask app:
-```bash
-python app.py
-Open your browser at http://localhost:5000.
