@@ -4,13 +4,14 @@ import textract
 from transformers import pipeline
 import os
 
-
 app = Flask(__name__, static_folder="static", template_folder="template")
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+# Use a smaller summarization model to avoid out-of-memory errors on Render
+summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 def extract_text(file_storage):
     filename = file_storage.filename
-    ext = os.path.splitext(filename)[1].lower()
+    ext = os.path.splitext(filename)[1].lower()g
 
     if ext == '.docx':
         doc = Document(file_storage)
@@ -26,7 +27,6 @@ def extract_text(file_storage):
 
 @app.route("/")
 def index():
-    
     return render_template("index.html")
 
 @app.route("/upload", methods=["POST"])
@@ -46,6 +46,7 @@ def summarize():
     text = data.get("text", "")
     if text:
         try:
+            # Limit input size for summarization to 1024 tokens (model limit)
             result = summarizer(text[:1024], max_length=100, min_length=30, do_sample=False)
             return jsonify({"summary": result[0]["summary_text"]})
         except Exception as e:
