@@ -39,7 +39,7 @@ Summarize Text
 ------------------------------------------------------------------------------------------------
 ## 📂 Folder Structure
 
-Summarize/
+Summarize/ <br>
 ├── app.py # Flask backend
 ├── requirements.txt # Python dependencies
 ├── template/
