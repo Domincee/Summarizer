@@ -67,6 +67,11 @@ Summarize/ <br>
 2. Create a virtual environment and activate it:
  ```bash
  python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+  ```
+source venv/bin/activate <br> # or <br>
+ ```bash
+ venv\Scripts\activate`
+ ```
+ on Windows
 
 
