@@ -1,6 +1,10 @@
-# 📝 Summarize – Document Summarization Web App
 
-Summarize is a simple and powerful web app that allows users to upload `.docx` or `.doc` files and get concise summaries using state-of-the-art natural language processing.
+
+# 📝 Summarize – Document Summarization Web App
+A simple Flask web application that allows users to upload .doc or .docx files, extract the text content, and generate a concise summary using a transformer-based model.
+
+🚀 Running the App Locally
+⚠️ This app runs locally and requires the server to be running on your machine.
 
 Built with:
 - ⚙️ Python + Flask
@@ -14,6 +18,39 @@ Built with:
 - Generate high-quality summaries using BART model
 - Clean and responsive UI
 - Spinner and progress bar for better UX
+- Minimal, clean interface
+
+Optionally share your local server using <a href="https://ngrok.com/"> ngrok </a>
+
+🛠 How to Run Locally
+ ```bash 
+git clone https://github.com/Domincee/Summarizer.git
+cd Summarizer
+
+ ```   
+2. Set Up a Virtual Environment (Optional but Recommended)
+ ```bash 
+python -m venv venv
+ ```   
+# For Windows
+ ```bash 
+venv\Scripts\activate
+ ```
+3. Install Dependencies
+ ```bash 
+pip install -r requirements.txt
+
+ ```
+4. Run the Flask App
+ ```bash 
+python app.py
+ ```
+
+By default, this runs the server at:
+ ```bash 
+it
+http://127.0.0.1:5000/
+ ```
 
 ## 📸 Demo
 ![image](https://github.com/user-attachments/assets/6e4df41b-353e-4302-b9ab-c063f2208c14)
