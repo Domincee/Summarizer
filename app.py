@@ -53,6 +53,5 @@ def summarize():
     return jsonify({"error": "No text to summarize"}), 400
 
 if __name__ == "__main__":
-    app.debug = True
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(host="0.0.0.0", port=5200)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
