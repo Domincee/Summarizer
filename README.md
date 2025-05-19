@@ -3,35 +3,6 @@
 # 📝 Summarize – Document Summarization Web App
 A simple Flask web application that allows users to upload .doc or .docx files, extract the text content, and generate a concise summary using a transformer-based model.
 
-🚀 Running the App Locally
-🛠 How to Run Locally
- ```bash 
-git clone https://github.com/Domincee/Summarizer.git
-cd Summarizer
-
- ```   
-2. Set Up a Virtual Environment (Optional but Recommended)
- ```bash 
-python -m venv venv
- ```   
-# For Windows
- ```bash 
-venv\Scripts\activate
- ```
-3. Install Dependencies
- ```bash 
-pip install -r requirements.txt
-
- ```
-4. Run the Flask App
- ```bash 
-python app.py
- ```
-
-By default, this runs the server at:
- ```bash 
-http://127.0.0.1:5000/
- ```
 
 Built with:
 - ⚙️ Python + Flask
