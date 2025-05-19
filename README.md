@@ -95,3 +95,9 @@ Hugging Face Spaces (recommended for ML apps)<br>
 
 Render, Railway, Google Cloud Run, Replit (may require higher memory plans)<br>
 
+🙌 Acknowledgements <br>
+Hugging Face Transformers<br>
+
+Python-Docx<br>
+
+Textract<br>
