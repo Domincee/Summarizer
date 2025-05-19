@@ -48,31 +48,30 @@ python app.py
 
 By default, this runs the server at:
  ```bash 
-it
 http://127.0.0.1:5000/
  ```
+
+
 
 ## 📸 Demo
 ![image](https://github.com/user-attachments/assets/6e4df41b-353e-4302-b9ab-c063f2208c14)
 
+<b>Upload FIle doc or docx </b>
 
-Upload FIle doc or docx
 ![image](https://github.com/user-attachments/assets/84fe57c2-3f2b-4bb4-b805-f36392fa2df2)
 
 ![image](https://github.com/user-attachments/assets/c557591a-924c-405b-8fd4-1683bd8c52cd)
 
-CLick Summarize
-wait for loading to finish
+<b>CLick Summarize</b> <br>
+<b>wait for loading to finish</b><br>
+
 ![image](https://github.com/user-attachments/assets/ab724396-8f42-4a25-abd0-d63fbd43c14c)
 
+<bSummarized Text</b><br>
 
-Summarize Text
 ![image](https://github.com/user-attachments/assets/7df5714a-3dca-45f9-9f2b-2d670856436e)
 
-
-
-
-![Demo Screenshot](screenshot.png) <!-- Optional: Add a screenshot of your app -->
+![Demo Screenshot](screenshot.png) 
 
 ## 📂 Folder Structure
 
