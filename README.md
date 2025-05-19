@@ -70,7 +70,7 @@ Optionally share your local server using <a href="https://ngrok.com/"> ngrok </a
 
 ![image](https://github.com/user-attachments/assets/7df5714a-3dca-45f9-9f2b-2d670856436e)
 
-![Demo Screenshot](screenshot.png) 
+
 
 ## 📂 Folder Structure
 
