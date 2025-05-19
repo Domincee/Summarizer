@@ -4,24 +4,6 @@
 A simple Flask web application that allows users to upload .doc or .docx files, extract the text content, and generate a concise summary using a transformer-based model.
 
 🚀 Running the App Locally
-⚠️ This app runs locally and requires the server to be running on your machine.
-
-Built with:
-- ⚙️ Python + Flask
-- 🤗 Hugging Face Transformers (`facebook/bart-large-cnn`)
-- 🧠 Text extraction via `python-docx` and `textract`
-
-## 🚀 Features
-
-- Upload `.docx` or `.doc` files
-- Extract and display full text from documents
-- Generate high-quality summaries using BART model
-- Clean and responsive UI
-- Spinner and progress bar for better UX
-- Minimal, clean interface
-
-Optionally share your local server using <a href="https://ngrok.com/"> ngrok </a>
-
 🛠 How to Run Locally
  ```bash 
 git clone https://github.com/Domincee/Summarizer.git
@@ -50,6 +32,23 @@ By default, this runs the server at:
  ```bash 
 http://127.0.0.1:5000/
  ```
+
+Built with:
+- ⚙️ Python + Flask
+- 🤗 Hugging Face Transformers (`facebook/bart-large-cnn`)
+- 🧠 Text extraction via `python-docx` and `textract`
+
+## 🚀 Features
+
+- Upload `.docx` or `.doc` files
+- Extract and display full text from documents
+- Generate high-quality summaries using BART model
+- Clean and responsive UI
+- Spinner and progress bar for better UX
+- Minimal, clean interface
+
+Optionally share your local server using <a href="https://ngrok.com/"> ngrok </a>
+
 
 
 
