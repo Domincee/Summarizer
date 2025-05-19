@@ -70,8 +70,28 @@ Summarize/ <br>
   ```
 source venv/bin/activate <br> # or <br>
  ```bash
- venv\Scripts\activate`
+ venv\Scripts\activate
  ```
  on Windows
 
+3.Install dependencies:<br>
+```bash 
+pip install -r requirements.txt 
+```
+
+4.Run the Flask app:
+```bash 
+python app.py
+```
+Open your browser at 
+```bash 
+http://localhost:5000.
+```
+
+🌐 Deployment <br>
+This app can be deployed on:<br>
+
+Hugging Face Spaces (recommended for ML apps)<br>
+
+Render, Railway, Google Cloud Run, Replit (may require higher memory plans)<br>
 
