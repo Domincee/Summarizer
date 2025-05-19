@@ -7,29 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const status = document.getElementById("status");
 
   // Create spinner & progress bar elements dynamically (or have them in your HTML)
-  const spinner = document.createElement("div");
-  spinner.id = "spinner";
-  spinner.style.display = "none";
-  spinner.innerText = "⏳ Loading...";
-  status.parentNode.insertBefore(spinner, status.nextSibling);
+// Instead of creating spinner & progress bar dynamically:
+  const spinner = document.getElementById("spinner");
+  const progressContainer = document.getElementById("progressContainer");
+  const progressBar = document.getElementById("progressBar");
 
-  const progressContainer = document.createElement("div");
-  progressContainer.id = "progressContainer";
-  progressContainer.style.display = "none";
-  progressContainer.style.width = "100%";
-  progressContainer.style.background = "#eee";
-  progressContainer.style.marginTop = "10px";
-  progressContainer.style.height = "20px";
-  progressContainer.style.borderRadius = "10px";
-  status.parentNode.insertBefore(progressContainer, spinner.nextSibling);
-
-  const progressBar = document.createElement("div");
-  progressBar.id = "progressBar";
-  progressBar.style.height = "100%";
-  progressBar.style.width = "0%";
-  progressBar.style.background = "#4caf50";
-  progressBar.style.borderRadius = "10px";
-  progressContainer.appendChild(progressBar);
 
   // Upload file and extract text from backend
   uploadBtn.addEventListener("click", async () => {

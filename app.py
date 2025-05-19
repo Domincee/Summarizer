@@ -4,7 +4,8 @@ import textract
 from transformers import pipeline
 import os
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder="static", template_folder="template")
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
 def extract_text(file_storage):
@@ -25,6 +26,7 @@ def extract_text(file_storage):
 
 @app.route("/")
 def index():
+    
     return render_template("index.html")
 
 @app.route("/upload", methods=["POST"])
@@ -51,4 +53,6 @@ def summarize():
     return jsonify({"error": "No text to summarize"}), 400
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.debug = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(host="0.0.0.0", port=5200)
