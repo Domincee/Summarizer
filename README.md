@@ -40,13 +40,13 @@ Summarize Text
 ## 📂 Folder Structure
 
 Summarize/ <br>
-├── app.py # Flask backend
-├── requirements.txt # Python dependencies
-├── template/
-│ └── index.html # Frontend HTML
-├── static/
-│ ├── styles.css # Custom styles
-│ └── main.js # JavaScript logic
+├── app.py # Flask backend <br>
+├── requirements.txt # Python dependencies <br>
+├── template/ <br>
+│ └── index.html # Frontend HTML <br>
+├── static/ <br>
+│ ├── styles.css # Custom styles <br>
+│ └── main.js # JavaScript logic <br>
 
 
 ------------------------------------------------------------------------------------------------
