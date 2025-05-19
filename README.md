@@ -65,11 +65,12 @@ Summarize/ <br>
    cd summarize
 
 Create a virtual environment and activate it:
+'''bash
 python -m venv venv
 source venv/bin/activate  # or `venv\Scripts\activate` on Windows
 
 Install dependencies:
-
+'''bash
 pip install -r requirements.txt
 
 
