@@ -36,7 +36,7 @@ Summarize Text
 
 
 ![Demo Screenshot](screenshot.png) <!-- Optional: Add a screenshot of your app -->
-------------------------------------------------------------------------------------------------
+
 ## 📂 Folder Structure
 
 Summarize/ <br>
@@ -49,7 +49,7 @@ Summarize/ <br>
 │ └── main.js # JavaScript logic <br>
 
 
-------------------------------------------------------------------------------------------------
+
 ## 🧪 Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript
@@ -58,25 +58,24 @@ Summarize/ <br>
 - **Text Extraction:** `python-docx`, `textract`
 
 ## 🧰 Setup Instructions
-------------------------------------------------------------------------------------------------
+
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/summarize.git
    cd summarize
-------------------------------------------------------------------------------------------------
+
 Create a virtual environment and activate it:
 python -m venv venv
 source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-------------------------------------------------------------------------------------------------
+
 Install dependencies:
 
 pip install -r requirements.txt
-'------------------------------------------------------------------------------------------------'
+
 
 
 Run the Flask app:
 
 python app.py
-------------------------------------------------------------------------------------------------
 
 Open your browser at http://localhost:5000.
