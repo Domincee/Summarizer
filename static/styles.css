@@ -88,10 +88,7 @@ ul {
     margin: 0;
 }
 
-li {
-    /* If you have multiple list items in the header, you might want to style them as flex items */
-    /* For a single link, it might not be strictly necessary */
-}
+
 
 /* Headings - Modernized Typography */
 h1, h2 {
