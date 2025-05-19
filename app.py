@@ -9,6 +9,7 @@ app = Flask(__name__, static_folder="static", template_folder="template")
 # Use a smaller summarization model to avoid out-of-memory errors on Render
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
+
 def extract_text(file_storage):
     filename = file_storage.filename
     ext = os.path.splitext(filename)[1].lower()

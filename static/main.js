@@ -11,7 +11,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const spinner = document.getElementById("spinner");
   const progressContainer = document.getElementById("progressContainer");
   const progressBar = document.getElementById("progressBar");
+  const cursorLabel = document.getElementById("cursorLabel");
 
+
+
+document.addEventListener("mousemove", (e) => {
+  cursorLabel.style.top = `${e.clientY + 15}px`;
+  cursorLabel.style.left = `${e.clientX + 15}px`;
+});
+
+// Show/hide label on hover
+summaryArea.addEventListener("mouseenter", () => {
+  cursorLabel.textContent = "Expand";
+  cursorLabel.style.opacity = 1;
+});
+summaryArea.addEventListener("mouseleave", () => {
+  cursorLabel.textContent = "Minimize";
+  cursorLabel.style.opacity = 1;
+
+  // Optional: hide again after a moment
+
+   
+ 
+});
+
+summaryArea.addEventListener("click", () => {
+  if(summaryArea.classList.contains("expanded")) {
+    summaryArea.classList.remove("expanded");
+  }else
+  summaryArea.classList.add("expanded");
+});
+
+document.addEventListener("click", (e) => {
+  if (!summaryArea.contains(e.target)) {
+    summaryArea.classList.remove("expanded");
+     cursorLabel.style.opacity = 0;
+   
+  }
+});
 
   // Upload file and extract text from backend
   uploadBtn.addEventListener("click", async () => {
@@ -112,3 +149,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+

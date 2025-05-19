@@ -1,0 +1,5 @@
+1. Start your Flask app locally:
+python app.py
+
+2. Run ngrok to tunnel your local server:
+D:\Tools\ngrok\ngrok.exe http 5000

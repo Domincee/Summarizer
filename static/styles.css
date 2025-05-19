@@ -1,168 +1,319 @@
- *{
-        margin: 0;
+/* Universal Box-Sizing for Consistent Layout */
+*,
+*::before,
+*::after {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  /* Overall body styling */
+}
+
+/* Overall Body Styling - Centered and Responsive */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
-  max-width: 700px;
-  margin: 40px auto;
-  background: #f9f9f9;
-  color: #333;
-  line-height: 1.5;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    padding: 20px; /* Base padding for mobile */
+    max-width: clamp(320px, 90vw, 850px); /* Responsive max-width */
+    margin: 90px auto 40px auto; /* Increased top margin to clear fixed header, centers horizontally */
+    background: #fcfdff; /* Very light, subtle background */
+    color: #3f5165; /* Deep, muted blue for primary text */
+    line-height: 1.7; /* Enhanced readability */
+    overflow-x: hidden; /* Prevents horizontal scroll on smaller screens */
+    -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Header Styling - Fixed, Modern, and with visible links */
+header {
+    width: 100%;
+    padding: 15px 30px; /* Comfortable padding */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    z-index: 1000; /* Ensures header is always on top */
+    background: rgba(255, 255, 255, 0.98); /* Near-opaque white background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* More pronounced shadow for header */
+    height: 80px; /* Taller header for better visual presence */
+}
 
-/* Headings */
+/* GitHub Icon Styling */
+.github-icon {
+    width: 40px; /* Size for the icon */
+    height: 40px;
+    display: block;
+    transition: transform 0.25s ease-out; /* Smoother transform */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.github-icon:hover {
+    transform: scale(1.1) rotate(5deg); /* More distinct hover effect */
+}
+
+/* Link Container Styling (Ensures proper spacing and alignment for multiple links/items in header) */
+.link {
+    display: flex;
+    align-items: center; /* Vertically center icon and text */
+    gap: 10px; /* Space between icon and text */
+    text-decoration: none;
+    margin-right: 20px; /* Space from the right edge or other header elements */
+}
+
+/* Anchor Tag Styling within the link container */
+.link a {
+    display: flex; /* Ensure it's a flex container for alignment */
+    align-items: center;
+    text-decoration: none;
+    color: #4a657e; /* A slightly darker, professional blue for links */
+    font-weight: 600; /* Bolder text */
+    font-size: 1rem; /* Clear font size */
+    transition: color 0.2s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.link a:hover {
+    color: #20b2aa; /* Teal highlight on hover */
+}
+
+/* This targets the <p> tag inside the <li> if it's meant to be the link text */
+/* Adjust based on your HTML structure: if the text is direct child of <a>, remove this */
+.list p {
+    text-align: center; /* Adjust if this paragraph is part of the link text */
+    margin: 0; /* Remove default margins */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    /* If you have multiple list items in the header, you might want to style them as flex items */
+    /* For a single link, it might not be strictly necessary */
+}
+
+/* Headings - Modernized Typography */
 h1, h2 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50; /* A classic deep blue for strong contrast */
+    margin-bottom: 30px; /* More vertical space */
+    font-weight: 700; /* Bold and impactful */
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size for H1 */
+    letter-spacing: -0.03em; /* Slightly tighter letter spacing for modern look */
 }
 
-/* File input and buttons container */
-#fileInput, button {
-  font-size: 1rem;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1.5px solid #54afec;
-  background-color: #3498db;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+h2 {
+    font-size: clamp(1.6rem, 4vw, 2.8rem); /* Responsive font size for H2 */
+    margin-top: 40px; /* Good space above subheadings */
+    margin-bottom: 25px;
+}
+
+/* File Input and Buttons - Cohesive and Interactive */
+.input-section {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: center; /* Center items in column */
+    gap: 18px; /* Space between elements */
+    margin-bottom: 35px; /* More space below the input section */
 }
 
 #fileInput {
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 1.5px solid #ccc;
-  background-color: rgb(232, 244, 230);
-  color: #555;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+    padding: 14px 25px; /* Generous padding for better touch targets */
+    border-radius: 12px; /* Even more rounded */
+    border: 1.5px solid #d4e0eb; /* Soft border */
+    background-color: #ffffff;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06); /* Soft outer shadow */
+    width: 100%; /* Full width on mobile */
+    text-align: center; /* Center text visually */
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 25px;
+    text-overflow: ellipsis;
 }
 
 #fileInput:hover {
-  border-color: #2980b9;
+    border-color: #a0d3f2;
+    background-color: #f0f7ff;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow on hover */
+}
 
+button {
+    font-size: 1.1rem; /* Slightly larger button text */
+    padding: 14px 30px; /* More padding for a bolder button */
+    border-radius: 12px; /* Consistent rounding */
+    border: none;
+    background: linear-gradient(135deg, #20b2aa, #1a968f); /* Modern teal gradient */
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 18px rgba(32, 178, 170, 0.35); /* Teal shadow */
+    font-weight: 600;
+    letter-spacing: 0.02em; /* Slightly spaced out letters */
+    min-width: 160px; /* Ensure buttons have a minimum width */
 }
 
 button:hover {
-  scale: 1.1;
-  background-color: #39749c;
-  border-color: #2980b9;
+    background: linear-gradient(135deg, #1a968f, #157a74); /* Darker gradient on hover */
+    transform: translateY(-4px) scale(1.03); /* More pronounced lift and scale */
+    box-shadow: 0 8px 25px rgba(32, 178, 170, 0.45); /* Enhanced shadow on hover */
 }
 
-/* Spacing between file input and button */
-#uploadBtn {
-  margin-left: 10px;
-}
-
-/* Textareas styling */
+/* Textareas Styling - Clean and Functional */
 textarea {
-  width: 100%;
-  min-height: 180px;
-  padding: 12px 15px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1.5px solid #ccc;
-  resize: vertical;
-  box-sizing: border-box;
-  font-family: 'Consolas', monospace, monospace;
-  color: #ff7d7d;
-  transition: border-color 0.3s ease;
+    width: 100%;
+    min-height: 180px; /* Comfortable height */
+    padding: 20px; /* Generous internal padding */
+    font-size: 1rem;
+    border-radius: 12px; /* Consistent rounding */
+    border: 1.5px solid #e0e7ee; /* Soft, light border */
+    resize: vertical;
+    box-sizing: border-box;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* Modern monospace stack */
+    color: #495e74; /* Darker text for input */
+    background-color: #fdfefe; /* Very light background for textareas */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08); /* Inner shadow for depth */
+    margin-bottom: 28px; /* Space below textareas */
 }
 
 textarea:focus {
-  border-color: #3498db;
-  outline: none;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    border-color: #20b2aa; /* Teal border on focus */
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(32, 178, 170, 0.25), inset 0 2px 6px rgba(0, 0, 0, 0.08); /* Subtle teal glow on focus */
 }
-
 
 #summaryArea {
-  background-color: #f5f6f8;
-  cursor: default;
-  color: #555;
+    background-color: #f5f8fc; /* Slightly different background for summary */
+    cursor: default;
+    color: #5d738f; /* Muted text color for summary */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06); /* Outer shadow for summary */
+    transition: all 0.3s ease-in-out;
+}
+#summaryArea:hover{
+  cursor: pointer;
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.308);
 }
 
-
+#summaryArea.expanded {
+    max-height: 500px; 
+    height: calc(40vh * 2);/* Allow for more content */
+    overflow-y: auto; /* Scroll if too much content */
+    transition: max-height 0.5s ease-in-out; /* Smooth transition */
+}
+/* Spinner and Progress - Animated and Informative */
 #spinner {
-  display: none;
-  font-size: 1.2rem;
-  color: #666;
-  text-align: center;
-  margin: 15px 0;
-  user-select: none;
+    display: none;
+    font-size: 1.2rem; /* Slightly larger spinner text */
+    color: #666;
+    text-align: center;
+    margin: 30px 0; /* More vertical space */
+    user-select: none;
+    animation: pulseFade 2s infinite ease-in-out; /* Smoother pulse animation */
 }
 
+@keyframes pulseFade {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
 
 #progressContainer {
-  display: none;
-  background-color: #f5fce8;
-  border: 1.5px solid #bbb;
-  border-radius: 10px;
-  height: 22px;
-  width: 100%;
-  overflow: hidden;
-  margin: 20px 0;
+    display: none;
+    background-color: #e6edf5; /* Light background for progress container */
+    border: 1px solid #c8d7e6; /* Soft border */
+    border-radius: 18px; /* Even more rounded */
+    height: 32px; /* Taller progress bar */
+    width: 100%;
+    overflow: hidden;
+    margin: 35px 0; /* More vertical space */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
 }
 
 /* Progress bar */
 #progressBar {
-  height: 100%;
-  background: linear-gradient(90deg, #2ecc71, #27ae60);
-  width: 0%;
-  border-radius: 10px 0 0 10px;
-  transition: width 0.4s ease;
+    height: 100%;
+    background: linear-gradient(90deg, #3cb371, #2e8b57); /* Forest green gradient */
+    width: 0%;
+    border-radius: 18px 0 0 18px; /* Match container radius */
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother, more natural transition curve */
 }
 
 /* Status message */
 #status {
+  display: absolute;
+  top: 0;
+  right: 0;
+  margin: auto;
+  z-index: 999;
   text-align: center;
-  font-style: italic;
-  color: #555;
-  margin-top: 15px;
-  min-height: 1.2em;
+   font-style: italic;
+    color: #6a7f9a; /* Softer status text color */
+    margin-top: 25px;
+    min-height: 1.8em; /* Ensure consistent height even when empty */
+    font-size: 1rem;
 }
-  .github-icon{
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-self: flex-end;
-    margin-right: 15px;
-    
-  }
-  
-  header{
-    padding-top: 15px;
-   width: 100%;
-   height: 80px;
-   position: fixed;
-   padding: 15px 15px 0 15px;
-   left: 0;
-   top: 0;
+#cursorLabel {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(238, 220, 220, 0.559);
+  color: rgb(0, 0, 0);
+  padding: 4px 8px;
+  font-size: 12px;
+  opacity: 0;
+  border-radius: 12px;
+  transition: opacity 0.2s;
+  z-index: 9999;
+}
 
-  }
-  .link a{
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    margin: 0;
-    color: rgb(0, 0, 0);
-    padding: 0;
-    font-weight: 500;
-    
-  }
-  ul {
-    list-style-type: none;
-  }
-  li{
-    width: 100%;
+/* Media Queries for Larger Screens */
+@media (min-width: 600px) {
+    body {
+        padding: 40px; /* More padding on larger screens */
+        margin: 100px auto 60px auto; /* Adjust margin for larger screen header */
+    }
 
-  }
-  .list p{
-    text-align: center;
-  }
+    .input-section {
+        flex-direction: row; /* Buttons side-by-side on larger screens */
+        justify-content: center; /* Center them horizontally */
+        gap: 25px; /* Increased gap */
+    }
+
+    #fileInput {
+        width: auto; /* Allow width to be determined by content */
+        max-width: 350px; /* Cap width for better visual flow */
+        text-align: left; /* Align text left */
+    }
+
+    button {
+        min-width: 200px; /* Larger minimum width for buttons */
+    }
+
+    textarea {
+        min-height: 250px; /* Taller textareas for desktop */
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 3.2rem;
+    }
+    header {
+        padding: 20px 50px; /* More padding for a spacious header */
+        height: 90px;
+    }
+    .github-icon {
+        width: 48px;
+        height: 48px;
+    }
+    .link a {
+        font-size: 1.1rem; /* Slightly larger link text on large screens */
+    }
+}

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Upload and Summarize</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
@@ -16,7 +16,6 @@
     <ul class="navlist">
       <li class="link" >
         <a  href="https://github.com/Domincee" target="_blank" rel="noopener noreferrer"><img class="github-icon" src="https://static-00.iconduck.com/assets.00/github-icon-2048x2048-dpporae2.png" alt="Github">
-         <p>Github</p>
         </a>
 
       </li>
@@ -35,11 +34,11 @@
   <div id="progressContainer">
     <div id="progressBar"></div>
   </div>
-
+ <p id="status"></p>
   <h2>Summary</h2>
-  <textarea id="summaryArea" readonly></textarea>
-
-  <p id="status"></p>
+  <textarea class="summaryArea" id="summaryArea" readonly></textarea>
+  <div id="cursorLabel"></div>
+ 
 
   <script src="/static/main.js"></script>
 </body>
