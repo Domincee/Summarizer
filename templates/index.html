@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload and Summarize</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 700px; margin: auto; }
+    textarea { width: 100%; height: 200px; margin: 10px 0; }
+    button { margin-right: 10px; }
+    #spinner { display: none; }
+    #progressContainer { display: none; background: #eee; border: 1px solid #ccc; margin: 10px 0; height: 20px; width: 100%; }
+    #progressBar { height: 100%; background: green; width: 0%; }
+  </style>
+</head>
+<body>
+  <h1>DOC/DOCX Upload & Summarize</h1>
+
+  <input type="file" id="fileInput" accept=".doc,.docx">
+  <button id="uploadBtn">Upload</button>
+  <div id="spinner">⏳ Extracting text...</div>
+
+  <textarea id="textArea" placeholder="Extracted text will appear here..."></textarea>
+  <br>
+  <button id="summarizeBtn">Summarize</button>
+
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
+
+  <h2>Summary</h2>
+  <textarea id="summaryArea" readonly></textarea>
+
+  <p id="status"></p>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>

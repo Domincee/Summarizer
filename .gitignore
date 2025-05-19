@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+
+# Flask & Model cache
+*.db
+instance/
+*.sqlite3
+.env
+.env.*
+.cache/
+temp/
+uploads/
+checkpoints/
+
+# Hugging Face Transformers cache
+~/.cache/
+transformers_cache/
+
+# Node modules (if ever added for frontend)
+node_modules/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs and misc
+*.log
+*.bak
+
+# VSCode settings
+.vscode/
