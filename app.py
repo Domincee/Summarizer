@@ -11,7 +11,7 @@ summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 def extract_text(file_storage):
     filename = file_storage.filename
-    ext = os.path.splitext(filename)[1].lower()g
+    ext = os.path.splitext(filename)[1].lower()
 
     if ext == '.docx':
         doc = Document(file_storage)
