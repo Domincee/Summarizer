@@ -113,5 +113,5 @@ Python-Docx<br>
 Textract<br>
 
 
-This small personal project only showcase how to extract a text content from a file  generate a summary.
+This small personal project only showcase how to extract a text content from a file and  generate a summary.
  
