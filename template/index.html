@@ -1,47 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Upload and Summarize</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
-  
+  <meta charset="UTF-8" />
+  <title>DOC/DOCX Upload & Summarize</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
   <header>
     <ul class="navlist">
-      <li class="link" >
-        <a  href="https://github.com/Domincee" target="_blank" rel="noopener noreferrer"><img class="github-icon" src="https://static-00.iconduck.com/assets.00/github-icon-2048x2048-dpporae2.png" alt="Github">
+      <li class="link">
+        <a href="https://github.com/Domincee" target="_blank" rel="noopener noreferrer">
+          <img class="github-icon" src="https://cdn.simpleicons.org/github/24292f" alt="GitHub" />
         </a>
-
       </li>
     </ul>
   </header>
-  <h1>DOC/DOCX Upload & Summarize</h1>
 
-  <input type="file" id="fileInput" accept=".doc,.docx">
-  <button id="uploadBtn">Upload</button>
-  <div id="spinner">⏳ Extracting text...</div>
+  <main>
+    <h1>DOC/DOCX Upload & Summarize</h1>
+    <p class="subtitle">Extract text from your document and generate a concise summary.</p>
 
-  <textarea id="textArea" placeholder="Extracted text will appear here..."></textarea>
-  <br>
-  <button id="summarizeBtn">Summarize</button>
+          <section class="input-section">
+          <!-- Drag & Drop Zone -->
+          <div id="dropZone" class="drop-zone" tabindex="0" role="button"
+              aria-label="Drag and drop a .doc or .docx here, or click to browse">
+            <div class="dz-icon">📄</div>
+            <p class="dz-title"><strong>Drag & drop</strong> .doc or .docx here</p>
+            <p class="dz-subtitle">…or click to choose a file</p>
+          </div>
 
-  <div id="progressContainer">
-    <div id="progressBar"></div>
-  </div>
- <p id="status"></p>
-  <h2>Summary</h2>
-  <textarea class="summaryArea" id="summaryArea" readonly></textarea>
+          <!-- REQUIRED: the JS needs this input -->
+          <input
+            type="file"
+            id="fileInput"
+            accept=".doc,.docx"
+            class="visually-hidden"
+            aria-label="Choose a .doc or .docx file"
+          />
+        </section>
+
+      <div class="btn-section">
+         <button id="uploadBtn" type="button">
+            <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i> Upload
+          </button>
+
+          <button id="summarizeBtn" type="button">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Summarize
+          </button>
+      </div>
+    
+
+    <div id="spinner">⏳ Extracting text...</div>
+
+    <label for="textArea" class="visually-hidden">Extracted Text</label>
+    <textarea id="textArea" placeholder="Extracted text will appear here..."></textarea>
+
+    <div id="progressContainer" aria-hidden="true">
+      <div id="progressBar"></div>
+    </div>
+
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <h2>Summary</h2>
+    <label for="summaryArea" class="visually-hidden">Summary Output</label>
+    <textarea class="summaryArea" id="summaryArea" readonly title="Click to expand/collapse"></textarea>
+  </main>
+
   <div id="cursorLabel"></div>
- 
 
   <script src="/static/main.js"></script>
+  <script>
+    // Optional: tap-to-expand summary (non-breaking)
+    (function () {
+      const el = document.getElementById('summaryArea');
+      if (!el) return;
+      el.addEventListener('click', () => el.classList.toggle('expanded'));
+    })();
+  </script>
 </body>
 </html>
-
-

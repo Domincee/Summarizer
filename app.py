@@ -2,13 +2,13 @@ from flask import Flask, request, render_template, jsonify
 from docx import Document
 import os
 
-# try to import textract; it's optional on the Free plan
+# Optional .doc support via textract (only works if you deploy with Docker + system deps)
 try:
     import textract  # noqa
 except Exception:
     textract = None
 
-from hf_inference import summarize_text  # NEW
+from summarizer_extractive import summarize_extractive  # << use local summarizer
 
 app = Flask(__name__, static_folder="static", template_folder="template")
 
@@ -16,26 +16,23 @@ def extract_text(file_storage):
     filename = file_storage.filename
     ext = os.path.splitext(filename)[1].lower()
 
-    if ext == '.docx':
-        doc = Document(file_storage)
+    if ext == ".docx":
+        doc = Document(file_storage.stream)
         return "\n".join(p.text for p in doc.paragraphs if p.text.strip())
 
-    elif ext == '.doc':
+    if ext == ".doc":
         if not textract:
-            raise RuntimeError(".doc files require textract/system deps. Use Docker deploy (see instructions) or upload .docx.")
+            raise RuntimeError(".doc requires textract (deploy with Docker) or upload a .docx instead.")
         os.makedirs("temp", exist_ok=True)
-        file_path = os.path.join("temp", filename)
-        file_storage.save(file_path)
+        path = os.path.join("temp", filename)
+        file_storage.save(path)
         try:
-            text = textract.process(file_path).decode("utf-8", errors="ignore")
+            return textract.process(path).decode("utf-8", errors="ignore")
         finally:
-            try:
-                os.remove(file_path)
-            except Exception:
-                pass
-        return text
+            try: os.remove(path)
+            except Exception: pass
 
-    raise RuntimeError("Unsupported file type. Upload a .docx (or .doc with Docker deploy).")
+    raise RuntimeError("Unsupported file type. Upload a .docx (or .doc with Docker).")
 
 @app.route("/")
 def index():
@@ -43,11 +40,11 @@ def index():
 
 @app.route("/upload", methods=["POST"])
 def upload():
-    file = request.files.get("file")
-    if not file:
+    f = request.files.get("file")
+    if not f:
         return jsonify({"error": "No file uploaded"}), 400
     try:
-        text = extract_text(file)
+        text = extract_text(f)
         return jsonify({"text": text})
     except Exception as e:
         return jsonify({"error": str(e)}), 400
@@ -55,11 +52,11 @@ def upload():
 @app.route("/summarize", methods=["POST"])
 def summarize():
     data = request.get_json() or {}
-    text = data.get("text", "").strip()
+    text = (data.get("text") or "").strip()
     if not text:
         return jsonify({"error": "No text to summarize"}), 400
     try:
-        summary = summarize_text(text, max_length=200, min_length=60)
+        summary = summarize_extractive(text)  # local, free
         return jsonify({"summary": summary})
     except Exception as e:
         return jsonify({"error": str(e)}), 400
