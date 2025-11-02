@@ -71,8 +71,8 @@ Summarize/ <br>
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/summarize.git
-   cd summarize
+   git clone https://github.com/yourusername/summarizer.git
+   cd summarizer
 
 2. Create a virtual environment and activate it:
  ```bash
